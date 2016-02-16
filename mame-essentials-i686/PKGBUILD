@@ -1,0 +1,51 @@
+# Maintainer: Miodrag Milanovic <mmicko@gmail.com>
+
+pkgname=mame-essentials
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Basic batch files and tools for MAME"
+arch=('i686')
+url="http://www.mamedev.org/"
+license=('BSD3')
+groups=('base')
+source=("i686\buildtools.bat"
+        "i686\conemu.bat"
+        "i686\init.sh"
+		"i686\win32\aliases"
+		"i686\win32\env.bat"
+		"i686\win32\make.exe"
+		"i686\win32\vsdisable.bat"
+		"i686\win32\vsenable.bat"
+		"i686\win32con.bat"
+		"i686\win32env.bat"
+		"mirrorlist.mame")
+						
+md5sums=('66c4fae52a280457cc1384aca6b11f2d'
+         '99230daf85363bd284a2426a2818c17a'
+         'd41d8cd98f00b204e9800998ecf8427e'
+		 'fd7a73bfbc8188d71bab9dc4890eeb3e'
+		 '62bfd0cee3da6fac251537456a85a35e'
+		 '7c834c73760c99d501133a9cc1eee216'
+		 '6bc5b389e8cc28ad7ea0104797929a90'
+		 '891686bac37b6044d42f0448e8d67680'
+		 'd6776045f0610d89fa7144e9fe3e14d4'
+		 '99fa932213409d33ba79007569af6384'
+		 '97a53935025bd1f81fbbfeed5d4ca726')
+
+package() {
+	mkdir -p ${pkgdir}/win32
+	mkdir -p ${pkgdir}/etc/pacman.d
+	install -m644 ${srcdir}/buildtools.bat             ${pkgdir}/
+	install -m644 ${srcdir}/conemu.bat				   ${pkgdir}/
+	install -m644 ${srcdir}/init.sh                    ${pkgdir}/
+	install -m644 ${srcdir}/aliases                    ${pkgdir}/win32/
+	install -m644 ${srcdir}/env.bat                    ${pkgdir}/win32/
+	install -m644 ${srcdir}/make.exe                   ${pkgdir}/win32/
+	install -m644 ${srcdir}/vsdisable.bat              ${pkgdir}/win32/
+	install -m644 ${srcdir}/vsenable.bat               ${pkgdir}/win32/
+	install -m644 ${srcdir}/win32con.bat               ${pkgdir}/
+	install -m644 ${srcdir}/win32env.bat               ${pkgdir}/
+	install -m644 ${srcdir}/mirrorlist.mame            ${pkgdir}/etc/pacman.d/
+}
+
+

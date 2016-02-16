@@ -1,0 +1,8 @@
+##
+## MAME repository mirrorlist
+##
+
+## Primary
+## MAME
+Server = http://repo.mamedev.org/$arch
+
