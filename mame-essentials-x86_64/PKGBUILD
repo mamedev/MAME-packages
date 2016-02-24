@@ -1,71 +1,22 @@
 # Maintainer: Miodrag Milanovic <mmicko@gmail.com>
 
 pkgname=mame-essentials
-pkgver=1.0.0
+pkgver=1.0.1
 pkgrel=1
 pkgdesc="Basic batch files and tools for MAME"
 arch=('x86_64')
 url="http://www.mamedev.org/"
 license=('BSD3')
 groups=('base')
-source=("x86_64\buildtools-32.bat"
-		"x86_64\buildtools.bat"
-		"x86_64\conemu-32.bat"
-		"x86_64\conemu.bat"
-		"x86_64\init.sh"
-		"x86_64\win32\7z.sfx"
-		"x86_64\win32\7za.exe"
-		"x86_64\win32\aliases"
-		"x86_64\win32\config32.bat"
-		"x86_64\win32\config64.bat"
-		"x86_64\win32\env.bat"
-		"x86_64\win32\make.exe"
-		"x86_64\win32\vsdisable.bat"
-		"x86_64\win32\vsenable.bat"
-		"x86_64\win32con.bat"
-		"x86_64\win32env.bat"
-		"mirrorlist.mame")
-						
-md5sums=('4d7ea3c6362fa726e79c133ca51f5023'
-		 'af00510b70a40b3dcb6b5898944a88ac'
-		 'd4f8f27c7025bd78e2ebf6c93b26e9ad'
-		 '5258b2cb5fd52025b5f47dffbbf6926c'
-		 'd41d8cd98f00b204e9800998ecf8427e'
-		 'd0b5de7b2368094b32c9511d99a033cc'
-		 'c3d309156b8e8cf1d158de5fab1c2b40'
-		 'fd7a73bfbc8188d71bab9dc4890eeb3e'
-		 '9adb6f74c87473cbb8168c3370993516'
-		 'ef5bdec4bec43075eec3a0fb2ae181fe'
-		 '436bc777d8f9f0f568945e5e4c7bb39c'
-		 '0a64c927b8ddc2dccc142937a616eab5'
-		 '6bc5b389e8cc28ad7ea0104797929a90'
-		 '891686bac37b6044d42f0448e8d67680'
-		 'd6776045f0610d89fa7144e9fe3e14d4'
-		 '99fa932213409d33ba79007569af6384'
-		 '97a53935025bd1f81fbbfeed5d4ca726')
 
 options=('!strip')
 
 package() {
 	mkdir -p ${pkgdir}/win32
 	mkdir -p ${pkgdir}/etc/pacman.d
-	install -m644 ${srcdir}/buildtools-32.bat        ${pkgdir}/
-	install -m644 ${srcdir}/buildtools.bat           ${pkgdir}/
-	install -m644 ${srcdir}/conemu-32.bat            ${pkgdir}/
-	install -m644 ${srcdir}/conemu.bat               ${pkgdir}/
-	install -m644 ${srcdir}/init.sh                  ${pkgdir}/
-	install -m644 ${srcdir}/7z.sfx             ${pkgdir}/win32/
-	install -m644 ${srcdir}/7za.exe            ${pkgdir}/win32/
-	install -m644 ${srcdir}/aliases            ${pkgdir}/win32/
-	install -m644 ${srcdir}/config32.bat       ${pkgdir}/win32/
-	install -m644 ${srcdir}/config64.bat       ${pkgdir}/win32/
-	install -m644 ${srcdir}/env.bat            ${pkgdir}/win32/
-	install -m644 ${srcdir}/make.exe           ${pkgdir}/win32/
-	install -m644 ${srcdir}/vsdisable.bat      ${pkgdir}/win32/
-	install -m644 ${srcdir}/vsenable.bat       ${pkgdir}/win32/
-	install -m644 ${srcdir}/win32con.bat             ${pkgdir}/
-	install -m644 ${srcdir}/win32env.bat             ${pkgdir}/
-	install -m644 ${srcdir}/mirrorlist.mame            ${pkgdir}/etc/pacman.d/ 	
+
+	cp -rf ${srcdir}/* ${pkgdir}/
+	cp -rf ${srcdir}/../mirrorlist.mame  ${pkgdir}/etc/pacman.d/ 	
 }
 
 
