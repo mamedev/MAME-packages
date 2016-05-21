@@ -1,7 +1,7 @@
 # Maintainer: Miodrag Milanovic <mmicko@gmail.com>
 
 pkgname=mame-essentials
-pkgver=1.0.3
+pkgver=1.0.5
 pkgrel=1
 pkgdesc="Basic batch files and tools for MAME"
 arch=('x86_64')

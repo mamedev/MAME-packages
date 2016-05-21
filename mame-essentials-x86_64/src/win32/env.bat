@@ -58,7 +58,6 @@
 	@set NACL_SDK_ROOT=%MSYS2_ROOT%\vendor\nacl_sdk\pepper_47
 	@set CYGWIN=nodosfilewarning
 )
-)
 @IF EXIST "%MSYS2_ROOT%\vendor\java" (
 	@set JAVA_HOME=%MSYS2_ROOT%\vendor\java
 )
